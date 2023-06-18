@@ -52,6 +52,27 @@ public class GerenciaPedidoOrcamentoController implements Initializable {
 
     }
 
+    private final StageInitializer stageInitializer;
+
+    public GerenciaPedidoOrcamentoController(StageInitializer stageInitializer) {
+        this.stageInitializer = stageInitializer;
+    }
+
+    @FXML
+    private void goToListarPedidos() {
+        stageInitializer.changeScene("/ListarPedidosScreen.fxml");
+    }
+
+    @FXML
+    private void goToEditarPedidos() {
+        stageInitializer.changeScene("/EditarPedidoScreen.fxml");
+    }
+
+    @FXML
+    private void goToExcluirPedidos() {
+        stageInitializer.changeScene("/ExcluirPedidoScreen.fxml");
+    }
+
 
 //    @FXML
 //    private void goToCriarPedidoOrcScreen() throws IOException {

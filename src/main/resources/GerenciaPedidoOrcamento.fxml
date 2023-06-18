@@ -46,17 +46,17 @@
       </HBox>
       <HBox layoutX="84.0" layoutY="253.0" prefHeight="76.0" prefWidth="463.0" spacing="15.0">
          <children>
-            <Button fx:id="btn_listaPed" mnemonicParsing="false" prefHeight="48.0" prefWidth="135.0" text="LISTAR PEDIDOS">
+            <Button fx:id="btn_listaPed" mnemonicParsing="false" prefHeight="48.0" prefWidth="135.0" text="LISTAR PEDIDOS" onAction="#goToListarPedidos">
                <font>
                   <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="btn_editaPed" mnemonicParsing="false" prefHeight="48.0" prefWidth="133.0" text="EDITAR PEDIDO">
+            <Button fx:id="btn_editaPed" mnemonicParsing="false" prefHeight="48.0" prefWidth="133.0" text="EDITAR PEDIDO" onAction="#goToEditarPedidos">
                <font>
                   <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="btn_excluiPed" mnemonicParsing="false" prefHeight="48.0" prefWidth="138.0" text="EXCLUIR PEDIDO" >
+            <Button fx:id="btn_excluiPed" mnemonicParsing="false" prefHeight="48.0" prefWidth="138.0" text="EXCLUIR PEDIDO" onAction="#goToExcluirPedidos">
                <font>
                   <Font size="10.0" />
                </font>
