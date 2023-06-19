@@ -28,6 +28,9 @@ public class Adicional {
         this.multiplicador = multiplicador;
     }
 
+    public Adicional() {
+    }
+
     public Long getId() {
         return id;
     }

@@ -32,6 +32,9 @@ public class Cor {
         this.id = id;
     }
 
+    public Cor()
+    {}
+
     public String getNome() {
         return nome;
     }

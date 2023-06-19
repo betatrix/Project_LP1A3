@@ -31,6 +31,9 @@ public class Tamanho {
         this.nome = nome;
     }
 
+    public Tamanho() {
+    }
+
     public String getNome() {
         return nome;
     }
