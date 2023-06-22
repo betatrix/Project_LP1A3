@@ -69,19 +69,18 @@ class StageInitializer implements ApplicationListener<StageReadyEvent> {
 			fxmlLoader.setControllerFactory(this.applicationContext::getBean);
 			Parent root = fxmlLoader.load();
 			Scene scene = new Scene(root, 600, 400);
-			Stage stage = new Stage();  // Cria um novo estágio para a nova cena
-			stage.setScene(scene);
-			stage.setTitle(this.applicationTitle);
-			stage.show();
+			currentStage.setScene(scene);
+			currentStage.setTitle(this.applicationTitle);
+			currentStage.show();
 
-			// Fecha o estágio atual e limpa a referência
-			if (currentStage != null) {
-				currentStage.close();
-				currentStage = null;
-			}
-
-			// Atualiza a referência do estágio atual
-			currentStage = stage;
+//			// Fecha o estágio atual e limpa a referência
+//			if (currentStage != null) {
+//				currentStage.close();
+//				currentStage = null;
+//			}
+//
+//			// Atualiza a referência do estágio atual
+//			currentStage = stage;
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -90,14 +89,15 @@ class StageInitializer implements ApplicationListener<StageReadyEvent> {
 	public void onApplicationEvent(StageReadyEvent stageReadyEvent) {
 		try {
 			Stage stage = stageReadyEvent.getStage();
-			ClassPathResource fxml = new ClassPathResource("/GerenciaPedidoOrcamento.fxml");
+			currentStage = stage;
+			ClassPathResource fxml = new ClassPathResource("/MainScreen.fxml");
 			FXMLLoader fxmlLoader = new FXMLLoader(fxml.getURL());
 			fxmlLoader.setControllerFactory(this.applicationContext::getBean);
 			Parent root = fxmlLoader.load();
 			Scene scene = new Scene(root, 600, 400);
-			stage.setScene(scene);
-			stage.setTitle(this.applicationTitle);
-			stage.show();
+			currentStage.setScene(scene);
+			currentStage.setTitle(this.applicationTitle);
+			currentStage.show();
 		}
 		catch (IOException e) {
 			throw new RuntimeException(e);

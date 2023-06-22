@@ -32,12 +32,11 @@ public class Modelo {
     private List<ItemPedido> itensPedido = new ArrayList<>();
 
 
-    public Modelo(String nome,Double multiplicador) {
+    public Modelo(String nome, List<Peca> pecas, Double multiplicador) {
         this.nome = nome;
+        this.pecas = pecas;
         this.multiplicador = multiplicador;
     }
-
-    public Modelo(){}
 
     public Long getId() {
         return id;

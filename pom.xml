@@ -17,6 +17,7 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.0.RC1</version>
         <relativePath/> <!-- lookup parent from repository -->
+
     </parent>
 
     <properties>
@@ -25,6 +26,7 @@
         </project.reporting.outputEncoding>
         <java.version>11</java.version>
         <javafx.version>11</javafx.version>
+
     </properties>
 
     <dependencies>
@@ -69,6 +71,8 @@
                     <scope>test</scope>
                 </dependency>
 
+
+
             <!-- Dependências para manipular banco de dados mysql -->
         <dependency>
             <groupId>mysql</groupId>
@@ -80,6 +84,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
             </dependency>
+
+        <!-- Dependência do Spring Security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
 
 
     </dependencies>

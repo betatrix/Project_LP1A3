@@ -33,9 +33,6 @@ public class Tecido {
         this.preco = preco;
     }
 
-    public Tecido() {
-    }
-
     public Long getId() {
         return id;
     }

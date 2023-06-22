@@ -33,13 +33,13 @@ public class Cliente {
 
     public Cliente(){}
 
-    public Cliente(String nome, String telefone, String email) {
+    public Cliente(String nome, String telefone, String email, List<Medida> medidas) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
+        this.medidas = medidas;
     }
-
 
     public Long getId() {
         return id;

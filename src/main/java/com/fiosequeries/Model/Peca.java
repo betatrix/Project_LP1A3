@@ -30,12 +30,10 @@ public class Peca {
     private List<ItemPedido> itensPedido = new ArrayList<>();
 
 
-    public Peca(String nome, Double precoBase) {
+    public Peca(String nome, Double precoBase, List<Medida> medidas) {
         this.nome = nome;
         this.precoBase = precoBase;
-    }
-
-    public Peca() {
+        this.medidas = medidas;
     }
 
     public Long getId() {
