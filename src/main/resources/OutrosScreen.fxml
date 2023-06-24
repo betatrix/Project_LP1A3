@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fiosequeries.OutrosController">
+
+    <center>
+        <VBox alignment="CENTER" prefHeight="243.0" prefWidth="358.0" spacing="10">
+            <Button fx:id="btn_peca" onAction="#goToPeca" text="Peça">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="100.0" top="10.0" />
+                </padding>
+                <font>
+                    <Font size="13.0" />
+                </font>
+            </Button>
+            <Button fx:id="btn_modelo" layoutX="10.0" onAction="#goToModelo" text="Modelo">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="85.0" top="10.0" />
+                </padding>
+            </Button>
+            <Button fx:id="btn_adicional" onAction="#goToAdicional" text="Adicional">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="80.0" top="10.0" />
+                </padding>
+            </Button>
+            <Button fx:id="btn_tecido" onAction="#goToTecido" text="Tecido">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="90.0" top="10.0" />
+                </padding>
+            </Button>
+        </VBox>
+    </center>
+   <bottom>
+      <Button fx:id="btn_voltar" mnemonicParsing="false" text="Voltar" BorderPane.alignment="CENTER" onAction="#goToFuncionarioView"/>
+   </bottom>
+</BorderPane>

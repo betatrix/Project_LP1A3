@@ -26,6 +26,7 @@ public class Cor {
     @OneToMany(mappedBy = "cor")
     private List<ItemPedido> itensPedido = new ArrayList<>();
 
+    public Cor(){}
 
     public Cor(String nome, Long id) {
         this.nome = nome;

@@ -1,5 +1,11 @@
 package com.fiosequeries.Model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +14,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "itemPedido")
-public class ItemPedido {
+public class ItemPedido implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,18 +42,48 @@ public class ItemPedido {
     @JoinColumn(name = "cor_id")
     private Cor cor;
 
-    @OneToMany(mappedBy = "itemPedido")
+//    @OneToMany(mappedBy = "itemPedido")
+//    private List<Adicional> adicionais = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(name = "ItemPedido_Adicional",
+            joinColumns = @JoinColumn(name = "itemPedido_id"),
+            inverseJoinColumns = @JoinColumn(name = "adicional_id"))
+    @Fetch(FetchMode.JOIN)
     private List<Adicional> adicionais = new ArrayList<>();
 
-    @ManyToOne
+
+    @ManyToOne(optional = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "orcamento_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Orcamento orcamento;
+
+    @ManyToOne(optional = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "pedido_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Pedido pedido;
 
     @Column(name = "valorItem")
     private Double valorItem;
 
     public ItemPedido() {
 
+    }
+
+    public Orcamento getOrcamento() {
+        return orcamento;
+    }
+
+    public void setOrcamento(Orcamento orcamento) {
+        this.orcamento = orcamento;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
     public Long getId() {
@@ -106,11 +142,34 @@ public class ItemPedido {
         this.adicionais = adicionais;
     }
 
-    public Double getValorItem() {
-        return valorItem;
-    }
+//    public Double getValorItem() {
+//        return valorItem;
+//    }
 
     public void setValorItem(Double valorItem) {
         this.valorItem = valorItem;
     }
+
+    // Calculo do valor total
+    public Double getValorItem() {
+        calcularValorItem();
+        return valorItem;
+    }
+
+    private void calcularValorItem() {
+        if (peca != null && modelo != null && tamanho != null && tecido != null) {
+            valorItem = peca.getPrecoBase()
+                    + tecido.getPreco()
+                    + (peca.getPrecoBase() * modelo.getMultiplicador())
+                    + (peca.getPrecoBase() * tamanho.getMultiplicador());
+
+            for (Adicional adicional : adicionais) {
+                valorItem += peca.getPrecoBase() * adicional.getMultiplicador();
+            }
+        } else {
+            valorItem = 0.0; // ou outro valor padrão, se necessário
+        }
+    }
+
+
 }

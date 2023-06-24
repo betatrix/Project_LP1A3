@@ -27,6 +27,8 @@ public class Tamanho {
     @OneToMany(mappedBy = "tamanho")
     private List<ItemPedido> itensPedido = new ArrayList<>();
 
+    public Tamanho (){}
+
     public Tamanho(Long id, String nome, Double multiplicador) {
         this.nome = nome;
     }

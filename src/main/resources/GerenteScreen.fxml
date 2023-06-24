@@ -30,7 +30,7 @@
          <children>
             <Label text="Código Gerente:   " GridPane.rowIndex="1" />
             <Label GridPane.rowIndex="2" />
-            <TextField fx:id="tfCodGerente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfCodGerente" editable="false" text="F&amp;Q2023" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="tfNomeUsuario" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Nome do Usuário:   " GridPane.rowIndex="2" />
             <Label text="Senha do Usuário:   " GridPane.rowIndex="3" />

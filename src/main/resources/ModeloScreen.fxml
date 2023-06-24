@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fiosequeries.ModeloController">
+    <top>
+        <Label text="Lista de Modelos" BorderPane.alignment="TOP_CENTER">
+            <BorderPane.margin>
+                <Insets bottom="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+            <font>
+                <Font name="System Bold Italic" size="16.0" />
+            </font>
+        </Label>
+    </top>
+    <center>
+        <TableView fx:id="modeloTableView" prefHeight="177.0" prefWidth="345.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="nomeColumn" prefWidth="150.0" text="Nome" />
+                <TableColumn fx:id="multiplicadorColumn" prefWidth="150.0" text="Multiplicador" />
+                <TableColumn fx:id="pecasColumn" prefWidth="150.0" text="Peças" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <VBox prefHeight="204.0" prefWidth="469.0" spacing="10">
+            <HBox spacing="10">
+                <Label text="Nome do Modelo:">
+                    <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Italic" size="12.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="nomeTextField" prefHeight="25.0" prefWidth="150.0">
+                    <HBox.margin>
+                        <Insets left="25.0" top="10.0" />
+                    </HBox.margin>
+                </TextField>
+            </HBox>
+            <HBox prefHeight="17.0" prefWidth="482.0" spacing="10">
+                <Label text="Multiplicador:">
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                    </HBox.margin>
+                </Label>
+                <TextField fx:id="multiplicadorTextField" prefHeight="25.0" prefWidth="195.0">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </TextField>
+            </HBox>
+            <HBox prefHeight="52.0" prefWidth="460.0" spacing="10">
+                <Button fx:id="btn_Adicionar_Modelo" onAction="#adicionarModelo" text="Adicionar">
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="btn_Editar_Modelo" onAction="#editarModelo" prefHeight="25.0" prefWidth="59.0" text="Editar">
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                    </HBox.margin>
+                </Button>
+            </HBox>
+            <HBox prefHeight="37.0" prefWidth="379.0" spacing="10">
+                <Label text="Peças:">
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Label>
+                <ListView fx:id="pecasListView" prefHeight="79.0" prefWidth="209.0" />
+                <Button fx:id="btn_Adicionar_Peca" onAction="#adicionarPeca" text="Adicionar Peça" />
+                <Button fx:id="btn_Remover_Peca" onAction="#removerPeca" text="Remover Peça" />
+            <Button fx:id="btn_voltar" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" text="Voltar" onAction="#goToOutros" />
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

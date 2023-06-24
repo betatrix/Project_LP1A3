@@ -24,9 +24,7 @@ public class Medida {
     @JoinColumn(name = "peca_id")
     private Peca peca;
 
-    public Medida(){
-
-    }
+    public Medida(){}
 
     public Medida(String nome, Double tamanho) {
         this.nome = nome;

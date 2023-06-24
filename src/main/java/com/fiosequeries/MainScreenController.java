@@ -52,7 +52,7 @@ public class MainScreenController implements Initializable {
             String userSenha = user.getSenhaUsuario();
             if(usuarioService.senhaValida(senha, userSenha)){
                 System.out.println("Senha correta");
-                stageInitializer.changeScene("/GerenciaPedidoOrcamento.fxml");
+                stageInitializer.changeScene("/FuncionarioView.fxml");
             }else{
                 lbError.setText("Email/senha estâo incorretos");
                 lbError.setTextFill(Color.RED);

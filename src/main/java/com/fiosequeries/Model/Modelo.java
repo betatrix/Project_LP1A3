@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Modelo")
@@ -32,11 +33,12 @@ public class Modelo {
     private List<ItemPedido> itensPedido = new ArrayList<>();
 
 
-    public Modelo(String nome, List<Peca> pecas, Double multiplicador) {
+    public Modelo(String nome,Double multiplicador) {
         this.nome = nome;
-        this.pecas = pecas;
         this.multiplicador = multiplicador;
     }
+
+    public Modelo(){}
 
     public Long getId() {
         return id;

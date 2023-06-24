@@ -1,5 +1,7 @@
 package com.fiosequeries.Model;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -17,15 +19,21 @@ public class Adicional {
     @Column(name = "multiplicador") // nome da coluna no banco de dados
     private Double multiplicador;
 
-    @ManyToOne
-    @JoinColumn(name = "itemPedido_id")
-    private ItemPedido itemPedido;
+//    @ManyToOne
+//    @JoinColumn(name = "itemPedido_id")
+//    private ItemPedido itemPedido;
+
+    @ManyToMany(mappedBy = "adicionais")
+    private List<ItemPedido> itemPedidos = new ArrayList<>();
 
 
     public Adicional(String nome, Double multiplicador) {
         this.id = id;
         this.nome = nome;
         this.multiplicador = multiplicador;
+    }
+
+    public Adicional() {
     }
 
     public Long getId() {

@@ -29,11 +29,12 @@ public class Peca {
     @OneToMany(mappedBy = "peca")
     private List<ItemPedido> itensPedido = new ArrayList<>();
 
-
-    public Peca(String nome, Double precoBase, List<Medida> medidas) {
+    public Peca(String nome, Double precoBase) {
         this.nome = nome;
         this.precoBase = precoBase;
-        this.medidas = medidas;
+    }
+
+    public Peca() {
     }
 
     public Long getId() {

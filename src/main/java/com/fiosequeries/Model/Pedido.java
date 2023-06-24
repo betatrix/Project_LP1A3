@@ -4,6 +4,8 @@ import com.fiosequeries.enums.TipoPagamentoEnum;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Pedido")
@@ -23,6 +25,11 @@ public class Pedido extends Orcamento{
 
     @Enumerated(EnumType.STRING)
     private TipoPagamentoEnum tipoPagamento;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> itensPedido = new ArrayList<>();
+
 
     public Pedido() {
     }

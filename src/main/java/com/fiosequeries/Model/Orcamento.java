@@ -22,6 +22,7 @@ public class Orcamento {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
+    @ElementCollection(fetch = FetchType.EAGER)
     @OneToMany(mappedBy = "orcamento")
     private List<ItemPedido> itensPedido = new ArrayList<>();
 
@@ -93,4 +94,10 @@ public class Orcamento {
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
     }
+
+    public void adicionarItemPedido(ItemPedido itemPedido) {
+        itensPedido.add(itemPedido);
+    }
+
+
 }
